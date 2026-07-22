@@ -276,7 +276,14 @@ header.scrolled {
   height: 44px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+  border: 1.5px solid rgba(229, 193, 88, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 0 1px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-normal);
+}
+
+[data-theme="dark"] .brand-logo {
+  border-color: rgba(229, 193, 88, 0.45);
+  box-shadow: 0 0 12px rgba(229, 193, 88, 0.18), 0 0 8px rgba(168, 85, 247, 0.12);
 }
 
 .nav-links {
@@ -1501,7 +1508,13 @@ footer {
   height: 24px;
   object-fit: cover;
   border-radius: 6px;
-  box-shadow: 0 0 8px rgba(168, 85, 247, 0.25);
+  border: 1px solid rgba(229, 193, 88, 0.25);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .footer-logo {
+  border-color: rgba(229, 193, 88, 0.35);
+  box-shadow: 0 0 8px rgba(229, 193, 88, 0.12);
 }
 
 .footer-text a {
