@@ -1,64 +1,526 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Metadata -->
+  <title>Kishore Kumar | Python Developer & AI Automation Builder</title>
+  <meta name="description" content="Portfolio of Kishore Kumar, a Python Developer based in Hyderabad, India. Expert in FastAPI, AI Automation, RAG, AI Agents, and Docker backend development.">
+  <meta name="keywords" content="Kishore Kumar, Python Developer, Hyderabad, FastAPI, AI automation, RAG, AI agents, Docker, backend development, portfolio">
+  <meta name="author" content="Kishore Kumar">
 
-  <title>Kishore Kumar | Python Developer</title>
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="styles.css">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f7fb;
-      color: #1f2937;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 40px;
-      text-align: center;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 22px;
-      color: white;
-      background: #24292f;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-  </style>
+  <!-- Theme Initialization (prevents dark/light flash) -->
+  <script>
+    (function() {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        document.documentElement.setAttribute('data-theme', storedTheme);
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
+    })();
+  </script>
 </head>
-
 <body>
+
+  <!-- Navigation Bar -->
+  <header id="header">
+    <div class="container navbar">
+      <a href="#home" class="nav-logo" id="nav-logo-link" aria-label="Kishore Kumar Home Page">
+        &lt;Kishore<span>Kumar/</span>&gt;
+      </a>
+      
+      <!-- Desktop Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active" aria-label="Go to Home section">Home</a></li>
+          <li><a href="#about" class="nav-link" aria-label="Go to About section">About</a></li>
+          <li><a href="#skills" class="nav-link" aria-label="Go to Skills section">Skills</a></li>
+          <li><a href="#projects" class="nav-link" aria-label="Go to Projects section">Projects</a></li>
+          <li><a href="#contact" class="nav-link" aria-label="Go to Contact section">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Light/Dark Mode Switcher -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle visual light or dark theme" title="Toggle theme">
+          <!-- Sun Icon for Light Mode -->
+          <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.03 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.02 0-1.41z"/>
+          </svg>
+          <!-- Moon Icon for Dark Mode -->
+          <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12.3 22c5.02 0 9.1-4.08 9.1-9.1 0-1.55-.4-3-1.09-4.26-.26-.46-.79-.62-1.25-.38-.45.24-.6.78-.39 1.25.75 1.63.93 3.47.38 5.18-.75 2.33-2.69 4.14-5.06 4.67-2.93.66-5.86-.68-7.16-3.23-.23-.46-.77-.63-1.23-.41-.47.23-.65.78-.44 1.26C4.83 19.36 8.31 22 12.3 22zm-1.85-5.91l2.58-1.57c.48-.29.69-.9.47-1.41-.22-.51-.8-.79-1.31-.61l-2.82.97c-.85-1.92-.37-4.22 1.26-5.61.35-.3.47-.79.3-1.23-.17-.44-.61-.71-1.07-.65-2.99.37-5.32 2.76-5.6 5.76-.32 3.46 2.05 6.53 5.51 7.1.6.1 1.2.1 1.68-.25z" style="display:none;"/>
+            <!-- Simpler standard moon path for compatibility -->
+            <path d="M12.3 2a10 10 0 0 0-1.9 19.8 10 10 0 0 0 11.8-11.8 10 10 0 0 1-9.9-8z" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="hamburger" class="hamburger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu" title="Toggle mobile navigation">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation Drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-link" aria-label="Go to Home section">Home</a></li>
+      <li><a href="#about" class="mobile-link" aria-label="Go to About section">About</a></li>
+      <li><a href="#skills" class="mobile-link" aria-label="Go to Skills section">Skills</a></li>
+      <li><a href="#projects" class="mobile-link" aria-label="Go to Projects section">Projects</a></li>
+      <li><a href="#contact" class="mobile-link" aria-label="Go to Contact section">Contact</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border-color);">
+      <a href="https://github.com/kishorejorige" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;" aria-label="View Kishore's GitHub Profile in a new tab">
+        <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        GitHub Profile
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Grid Content -->
   <main>
-    <h1>Hello, I’m Kishore Kumar</h1>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero" aria-label="Hero Introduction">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+      
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-greeting fade-in">Hello, I'm</span>
+          <h1 class="hero-title fade-in delay-100">Kishore Kumar</h1>
+          <h2 class="hero-subtitle fade-in delay-200">
+            <span class="text-gradient">Python Developer</span>
+          </h2>
+          
+          <p class="hero-description fade-in delay-300">
+            Based in Hyderabad, India. I specialize in building robust backend systems with FastAPI, 
+            automating workflows using AI agents, designing RAG pipelines, and containerizing 
+            deployments with Docker.
+          </p>
+          
+          <div class="hero-cta fade-in delay-400">
+            <a href="#projects" class="btn btn-primary" aria-label="Navigate to Featured Projects section">
+              View My Projects
+              <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary" aria-label="Navigate to Contact section">Contact Me</a>
+            <a href="https://github.com/kishorejorige" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="View Kishore's GitHub in a new tab">
+              <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+          
+          <div class="hero-tech-stack fade-in delay-400">
+            <div class="hero-tech-label">Core Capabilities</div>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">FastAPI</span>
+            <span class="tech-badge">AI Automation</span>
+            <span class="tech-badge">RAG</span>
+            <span class="tech-badge">AI Agents</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Backend Dev</span>
+          </div>
+        </div>
+        <div class="hero-avatar-wrapper fade-in delay-300">
+          <div class="hero-avatar-glow"></div>
+          <img src="assets/images/developer-avatar.png" alt="Kishore Kumar - Profile Avatar Graphic" class="hero-avatar" loading="eager">
+        </div>
+      </div>
+    </section>
 
-    <h2>Python Developer</h2>
+    <!-- About Section -->
+    <section id="about" class="section" aria-label="About Kishore">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">About Me</span>
+          <h2 class="section-title">Backend Specialist, Automation Explorer</h2>
+        </div>
+        
+        <div class="about-grid">
+          <div class="about-text fade-in">
+            <p>
+              Hi, I'm <strong>Kishore Kumar</strong>, a developer based in Hyderabad, India.  
+              My passion lies in writing clean, performant, and maintainable backend systems using 
+              <strong>Python</strong> and <strong>FastAPI</strong>.
+            </p>
+            <p>
+              In the age of AI, I construct production-ready <strong>AI automation workflows</strong>, 
+              building smart <strong>AI Agents</strong> and orchestrating Retrieval-Augmented Generation 
+              (<strong>RAG</strong>) architectures that turn unstructured data into actionable pipelines.
+            </p>
+            <p>
+              I leverage <strong>Docker</strong> for standardizing containerized applications, ensuring 
+              seamless deployments. I believe that engineering backend infrastructure correctly from 
+              the start is the key to building successful, scalable digital products.
+            </p>
+            
+            <div class="about-highlights">
+              <div class="highlight-box">
+                <span class="highlight-label">Location</span>
+                <span class="highlight-detail">Hyderabad, India</span>
+              </div>
+              <div class="highlight-box">
+                <span class="highlight-label">Main Focus</span>
+                <span class="highlight-detail">Python & AI Systems</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-illustration fade-in delay-200" aria-hidden="true">
+            <!-- Simulated Code Window -->
+            <div class="illustration-card">
+              <div class="code-window-header">
+                <div class="code-dot red"></div>
+                <div class="code-dot yellow"></div>
+                <div class="code-dot green"></div>
+              </div>
+              <div class="code-content">
+                <span class="code-comment"># Kishore - Python Dev</span><br>
+                <span class="code-keyword">from</span> fastapi <span class="code-keyword">import</span> FastAPI<br>
+                <span class="code-keyword">from</span> agent <span class="code-keyword">import</span> AIAgent<br><br>
+                app = FastAPI(title=<span class="code-string">"KishoreDev"</span>)<br><br>
+                @app.get(<span class="code-string">"/developer"</span>)<br>
+                <span class="code-keyword">async def</span> get_details():<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dev = AIAgent(name=<span class="code-string">"Kishore"</span>)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"role"</span>: <span class="code-string">"Python Backend Engineer"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"location"</span>: <span class="code-string">"Hyderabad, IN"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"skills"</span>: [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"FastAPI"</span>, <span class="code-string">"AI Agents"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"RAG"</span>, <span class="code-string">"Docker"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p>
-      I build Python applications, AI automation tools,
-      FastAPI services, and Docker-based projects.
-    </p>
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background-color: var(--bg-tertiary); transition: background-color var(--transition-normal);" aria-label="Skills and Technologies">
+      <div class="skills-glow"></div>
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Skills</span>
+          <h2 class="section-title">Technologies I work with</h2>
+        </div>
+        
+        <div class="skills-categories">
+          <!-- Backend & Language -->
+          <div class="skills-card fade-in">
+            <div class="skills-icon" aria-hidden="true">
+              <!-- Backend SVG -->
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4m-16 5c0 2.21 3.58 4 8 4s8-1.79 8-4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="skills-category-title">Backend & Core</h3>
+            <div class="skills-grid-inside">
+              <span class="skill-tag backend">Python</span>
+              <span class="skill-tag backend">FastAPI</span>
+              <span class="skill-tag backend">PostgreSQL</span>
+              <span class="skill-tag backend">SQLite</span>
+            </div>
+          </div>
+          
+          <!-- AI & Automation -->
+          <div class="skills-card fade-in delay-100">
+            <div class="skills-icon" aria-hidden="true">
+              <!-- AI SVG -->
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="skills-category-title">AI & Automation</h3>
+            <div class="skills-grid-inside">
+              <span class="skill-tag ai">AI / RAG</span>
+              <span class="skill-tag ai">AI Agents</span>
+              <span class="skill-tag ai">Automation</span>
+            </div>
+          </div>
+          
+          <!-- Frontend & Tools -->
+          <div class="skills-card fade-in delay-200">
+            <div class="skills-icon" aria-hidden="true">
+              <!-- Tools/Web SVG -->
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="skills-category-title">Web & DevOps</h3>
+            <div class="skills-grid-inside">
+              <span class="skill-tag tools">React</span>
+              <span class="skill-tag tools">Tailwind CSS</span>
+              <span class="skill-tag tools">JavaScript</span>
+              <span class="skill-tag tools">Docker</span>
+              <span class="skill-tag tools">Linux</span>
+              <span class="skill-tag tools">GitHub</span>
+              <span class="skill-tag tools">GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <a href="https://github.com/kishorejorige">
-      View My GitHub
-    </a>
+    <!-- Projects Section -->
+    <section id="projects" class="section" aria-label="Featured Projects Portfolio">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Projects</span>
+          <h2 class="section-title">Featured Creations</h2>
+        </div>
+        
+        <div class="projects-grid">
+          <!-- Project 1: Project Guardian -->
+          <article class="project-card fade-in">
+            <div class="project-img-wrapper">
+              <span class="project-status complete">Complete</span>
+              <img src="assets/images/project-guardian.png" alt="Project Guardian - modular static analysis code view screenshot" class="project-img" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Project Guardian</h3>
+              <p class="project-card-description">
+                A modular Python static analysis engine that audits code quality, dependency constraints, 
+                security risks, and machine-learning architecture patterns automatically.
+              </p>
+              <div class="project-card-tech">
+                <span class="project-tech-tag tech-python">Python</span>
+                <span class="project-tech-tag">AST</span>
+                <span class="project-tech-tag">Pytest</span>
+                <span class="project-tech-tag tech-actions">GitHub Actions</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/jorige3/project_guardian" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Project Guardian GitHub Repository in a new tab">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  Repository
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: ML Time Series Ranking Engine -->
+          <article class="project-card fade-in delay-100">
+            <div class="project-img-wrapper">
+              <span class="project-status live">Live</span>
+              <img src="assets/images/ml-time-series-ranking-engine.png" alt="ML Time Series Ranking Engine FastAPI analytics web console dashboard" class="project-img" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <h3 class="project-card-title">ML Time Series Ranking Engine</h3>
+              <p class="project-card-description">
+                Machine learning-powered prediction engine with FastAPI, Docker, analytics APIs, 
+                and automated daily prediction workflows utilizing robust Python statistics scripts.
+              </p>
+              <div class="project-card-tech">
+                <span class="project-tech-tag tech-python">Python</span>
+                <span class="project-tech-tag tech-fastapi">FastAPI</span>
+                <span class="project-tech-tag tech-docker">Docker</span>
+                <span class="project-tech-tag tech-ml">Machine Learning</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/jorige3/ml-time-series-ranking-engine" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View ML Time Series Ranking Engine GitHub Repository in a new tab">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  Repository
+                </a>
+                <a href="https://ml-time-series-ranking-engine.onrender.com/docs" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open ML Time Series Ranking Engine API Docs in a new tab">
+                  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Demo Docs
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Personal AI Engineer -->
+          <article class="project-card fade-in">
+            <div class="project-img-wrapper">
+              <span class="project-status active">Active</span>
+              <img src="assets/images/personal-ai-engineer.png" alt="Personal AI Engineer command interface terminal view" class="project-img" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <h3 class="project-card-title">Personal AI Engineer</h3>
+              <p class="project-card-description">
+                AI-powered personal developer assistant for coding, automation, and productivity. Integrates 
+                deep API connectivity with local context.
+              </p>
+              <div class="project-card-tech">
+                <span class="project-tech-tag tech-react">React</span>
+                <span class="project-tech-tag tech-python">Python</span>
+                <span class="project-tech-tag tech-fastapi">FastAPI</span>
+                <span class="project-tech-tag tech-docker">Docker</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/jorige3/personal-ai-engineer" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Personal AI Engineer GitHub Repository in a new tab">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  Repository
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: AND Real Estate -->
+          <article class="project-card fade-in delay-100">
+            <div class="project-img-wrapper">
+              <span class="project-status live">Live</span>
+              <img src="assets/images/and-real-estate.png" alt="AND Real Estate modern web app listings interface" class="project-img" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <h3 class="project-card-title">AND Real Estate</h3>
+              <p class="project-card-description">
+                A modern full-stack real estate platform with property listings, admin dashboard, image uploads, 
+                and automated lead management notifications.
+              </p>
+              <div class="project-card-tech">
+                <span class="project-tech-tag tech-react">React</span>
+                <span class="project-tech-tag tech-tailwind">Tailwind</span>
+                <span class="project-tech-tag tech-fastapi">FastAPI</span>
+                <span class="project-tech-tag tech-postgres">PostgreSQL</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/jorige3/and-real-estate" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View AND Real Estate GitHub Repository in a new tab">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  Repository
+                </a>
+                <a href="https://and-real-estates.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open AND Real Estate Live Demo in a new tab">
+                  <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Demo Live
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background-color: var(--bg-tertiary); transition: background-color var(--transition-normal);" aria-label="Contact Information and Social Networks">
+      <div class="contact-glow"></div>
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-subtitle">Contact</span>
+          <h2 class="section-title">Let's Build Together</h2>
+        </div>
+        
+        <div class="contact-grid">
+          <div class="contact-info fade-in">
+            <h3 class="contact-info-title">Let’s connect!</h3>
+            <p class="contact-info-desc">
+              I’m always open to discussing backend engineering roles, AI automation tasks, 
+              freelance projects, or collaboration on open-source tools.
+            </p>
+            
+            <div class="contact-list">
+              <!-- Email -->
+              <div class="contact-item">
+                <div class="contact-icon-wrapper" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-detail-label">Email Me Directly</span>
+                  <a href="mailto:jorige369@gmail.com" class="contact-detail-value" aria-label="Send email to jorige369@gmail.com">jorige369@gmail.com</a>
+                </div>
+              </div>
+              
+              <!-- Location -->
+              <div class="contact-item">
+                <div class="contact-icon-wrapper" aria-hidden="true">
+                  <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-detail-label">Location</span>
+                  <span class="contact-detail-value">Hyderabad, India</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Socials Cards -->
+          <div class="contact-socials-grid fade-in delay-200">
+            <!-- Github -->
+            <a href="https://github.com/kishorejorige" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Open Kishore's GitHub in a new tab">
+              <div class="social-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              </div>
+              <span class="social-card-title">GitHub</span>
+              <span class="social-card-link">github.com/kishorejorige</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/kishore-kumar-jorige-182927414/" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Open Kishore's LinkedIn profile in a new tab">
+              <div class="social-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+              </div>
+              <span class="social-card-title">LinkedIn</span>
+              <span class="social-card-link">View Profile</span>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/919032557159" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Contact Kishore on WhatsApp in a new tab">
+              <div class="social-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.982L2 22l5.202-1.362a9.98 9.98 0 0 0 4.808 1.226h.003c5.508 0 9.99-4.478 9.99-9.984C22.003 6.478 17.52 2 12.012 2zm6.98 14.54c-.287.808-1.42 1.48-1.97 1.564-.49.073-1.12.132-3.238-.75-2.71-1.13-4.437-3.9-4.572-4.08-.135-.18-1.1-1.464-1.1-2.794 0-1.33.697-1.984.945-2.25.247-.267.54-.333.72-.333h.518c.168 0 .393-.063.607.45.22.53.754 1.84.82 1.974.068.136.113.294.023.479-.09.184-.135.293-.27.45-.135.158-.284.354-.405.474-.136.135-.278.283-.12.553.157.27.7 1.15 1.503 1.865.736.657 1.353.86 1.646.995.292.135.462.113.63-.083.17-.197.72-.838.913-1.127.192-.29.382-.24.64-.146.26.094 1.644.776 1.926.918.28.142.467.211.534.327.067.116.067.674-.22 1.482z"/>
+                </svg>
+              </div>
+              <span class="social-card-title">WhatsApp</span>
+              <span class="social-card-link">Chat Now</span>
+            </a>
+
+            <!-- Upwork -->
+            <a href="https://www.upwork.com/freelancers/~019b73eef6a25caa91" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="View Kishore's Upwork agency profile in a new tab">
+              <div class="social-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.57 6.72c-1.63 0-2.82.95-3.32 2.37l-.14-.72h-2.92v6.62c0 1.25-.8 2.05-1.92 2.05s-1.85-.8-1.85-2.05V9.01H5.42v5.38c0 2.87 2.12 5.02 5.08 5.02s5.08-2.15 5.08-5.02v-2.05c.29-.98.92-1.65 1.86-1.65.92 0 1.58.67 1.58 1.65v2.05h3V12.4c0-3.35-2.12-5.68-4.95-5.68zM12.01 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.54 2 12.01 2z" />
+                </svg>
+              </div>
+              <span class="social-card-title">Upwork</span>
+              <span class="social-card-link">View Agency Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <p class="footer-text">
+        &copy; 2026 Kishore. Built with HTML, CSS, and Vanilla JS. Hosted on <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Pages site in a new tab">GitHub Pages</a>.
+      </p>
+      <nav aria-label="Footer Navigation">
+        <ul class="footer-links">
+          <li><a href="#home" aria-label="Go to top of page">Home</a></li>
+          <li><a href="#about" aria-label="Go to About section">About</a></li>
+          <li><a href="#skills" aria-label="Go to Skills section">Skills</a></li>
+          <li><a href="#projects" aria-label="Go to Projects section">Projects</a></li>
+          <li><a href="#contact" aria-label="Go to Contact section">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
 </body>
 </html>
