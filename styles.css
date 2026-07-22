@@ -272,8 +272,8 @@ header.scrolled {
 }
 
 .brand-logo {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
@@ -1489,6 +1489,19 @@ footer {
 .footer-text {
   font-size: 14px;
   color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.25);
 }
 
 .footer-text a {
