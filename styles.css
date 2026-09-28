@@ -110,6 +110,30 @@ button:focus-visible,
   outline-offset: 4px;
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--accent-cyan);
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 10000;
+  transition: top 0.2s;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid var(--accent-cyan);
+  outline-offset: 4px;
+}
+
 /* Typography */
 h1,
 h2,
@@ -1075,6 +1099,12 @@ header.scrolled {
   --card-gradient: linear-gradient(135deg, #10b981 0%, var(--accent-cyan) 100%);
 }
 
+.project-card.card-5 {
+  --card-accent: #3b82f6;
+  --card-glow: rgba(59, 130, 246, 0.15);
+  --card-gradient: linear-gradient(135deg, #3b82f6 0%, var(--accent-indigo) 100%);
+}
+
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg), 0 0 20px var(--card-glow);
@@ -1160,7 +1190,7 @@ header.scrolled {
 }
 
 .project-status.active {
-  background-color: #f59e0b;
+  background-color: #92400e;
 }
 
 @keyframes pulse-dot {
@@ -1199,6 +1229,10 @@ header.scrolled {
   font-size: 13px;
   color: var(--text-secondary);
   line-height: 1.55;
+}
+
+.project-card.card-1 .project-img {
+  object-position: center top;
 }
 
 .project-outcome strong {
@@ -1302,6 +1336,54 @@ header.scrolled {
 
 [data-theme="dark"] .project-tech-tag.tech-actions {
   color: #c084fc;
+}
+
+.project-tech-tag.tech-github-actions {
+  background-color: rgba(36, 41, 47, 0.08);
+  border-color: rgba(36, 41, 47, 0.2);
+  color: #24292f;
+}
+
+[data-theme="dark"] .project-tech-tag.tech-github-actions {
+  color: #f0f6fc;
+  background-color: rgba(240, 246, 252, 0.08);
+  border-color: rgba(240, 246, 252, 0.2);
+}
+
+.project-tech-tag.tech-ruff {
+  background-color: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+
+[data-theme="dark"] .project-tech-tag.tech-ruff {
+  color: #f87171;
+  background-color: rgba(248, 113, 113, 0.08);
+  border-color: rgba(248, 113, 113, 0.2);
+}
+
+.project-tech-tag.tech-pytest {
+  background-color: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #059669;
+}
+
+[data-theme="dark"] .project-tech-tag.tech-pytest {
+  color: #34d399;
+  background-color: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.project-tech-tag.tech-github-cli {
+  background-color: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #4f46e5;
+}
+
+[data-theme="dark"] .project-tech-tag.tech-github-cli {
+  color: #818cf8;
+  background-color: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.2);
 }
 
 .project-card-links {
@@ -1734,19 +1816,6 @@ footer {
   font-size: 14px;
   color: var(--text-muted);
   font-style: italic;
-}
-
-/* Project Outcome */
-.project-outcome {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.project-outcome strong {
-  color: var(--accent-cyan);
-  font-weight: 600;
 }
 
 /* Animation utilities for Intersection Observer */

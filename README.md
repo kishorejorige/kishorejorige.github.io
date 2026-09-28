@@ -37,17 +37,21 @@ Live Website: [https://kishorejorige.github.io](https://kishorejorige.github.io)
 - **Focus Outlines**: Active focus states with prominent cyan borders and offsets for keyboard navigation.
 - **Semantic Structure**: Built using HTML5 landmarks (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`) with descriptive `aria-label` tags.
 - **Reduced Motion Support**: Inside `@media (prefers-reduced-motion: reduce)`, all background mesh animations, transforms, and transitions are deactivated to maintain high accessibility.
+- **Skip to Content Link**: A visually hidden "Skip to main content" link becomes visible on keyboard focus, letting keyboard users jump straight to `<main id="main">`.
+- **SEO & Social Sharing**: Canonical URL, Open Graph (og:title, og:description, og:image), Twitter Card (summary_large_image), and theme-color meta tags in the `<head>`.
 
 ---
 
 ## 📂 File Directory
 
 ```bash
-├── index.html       # Primary page structure, SVGs, Services section, and head initialization script
-├── styles.css       # Variable tokens, grid rules, gradients, Services & project-outcome styles, and custom animations
+├── index.html       # Primary page structure, SVGs, Services section, SEO/Open Graph tags, skip link, and head initialization script
+├── styles.css       # Variable tokens, grid rules, gradients, Services & project-outcome styles, skip-link, and custom animations
 ├── script.js        # Scroll tracking listeners, mobile menu drawer, and theme toggling
 ├── README.md        # Documentation and guide
-├── .gitignore       # Environment rules exclusion
+├── .gitignore       # Ignores TASK.md, system files, IDE files, logs, node_modules/, and __pycache__/
+├── robots.txt       # Allows all crawlers and points to sitemap.xml
+├── sitemap.xml      # XML sitemap listing the homepage
 └── assets/
     └── images/      # Developer avatar and featured project assets
 ```
