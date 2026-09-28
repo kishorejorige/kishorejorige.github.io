@@ -17,6 +17,9 @@ Live Website: [https://kishorejorige.github.io](https://kishorejorige.github.io)
 - **Color-Coded Skill Categories**: Grouped into Backend, AI, and Web cards that glow with category-specific colors on hover.
 - **Featured Projects**: Displays projects inside gradient-bordered cards with specialized technology tag colors and multiply-blend overlays on hover.
 - **Balanced Contact Drawer**: Responsive 5-card social grid containing custom brand accents for GitHub, LinkedIn, WhatsApp, Upwork, and Email.
+- **Services Section**: Four service cards with staggered fade-in animations, cyan price labels, and a WhatsApp booking CTA.
+- **Case-Study Lines**: Each project card includes a Problem/Result summary beneath the description.
+- **Book a Call CTA**: Hero and Services section link to a WhatsApp pre-filled message for booking calls.
 
 ---
 
@@ -40,8 +43,8 @@ Live Website: [https://kishorejorige.github.io](https://kishorejorige.github.io)
 ## 📂 File Directory
 
 ```bash
-├── index.html       # Primary page structure, SVGs, and head initialization script
-├── styles.css       # Variable tokens, grid rules, gradients, and custom animations
+├── index.html       # Primary page structure, SVGs, Services section, and head initialization script
+├── styles.css       # Variable tokens, grid rules, gradients, Services & project-outcome styles, and custom animations
 ├── script.js        # Scroll tracking listeners, mobile menu drawer, and theme toggling
 ├── README.md        # Documentation and guide
 ├── .gitignore       # Environment rules exclusion
@@ -78,3 +81,10 @@ To update contact addresses or project URLs:
 1. Open `index.html`.
 2. Locate the `projects` section (`<section id="projects">`) and swap project repository URLs.
 3. Locate the `contact` section (`<section id="contact">`) and change the social `href` targets (Upwork, LinkedIn, GitHub, email, or phone number).
+
+## 🛠 Customizing Services
+
+To edit the Services section (`<section id="services">`):
+1. **Offers and prices**: Edit the four `<article class="service-card">` blocks — change the `<h3>` title, `<p>` description, and `<span class="service-price">` value.
+2. **Booking link**: Change the `href` on the `Book a free 15-min call` anchor inside `.services-cta`. The default points to a WhatsApp pre-filled message (`https://wa.me/919032557159?text=...`); replace it with a Calendly or other booking URL if preferred.
+3. **Stagger timing**: Adjust or remove the `delay-100` / `delay-200` classes on `.service-card` elements to change the fade-in sequence.

@@ -1542,6 +1542,111 @@ footer {
   color: var(--accent-cyan);
 }
 
+/* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.service-card {
+  background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+    var(--card-gradient) border-box;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.service-card:nth-child(1) {
+  --card-accent: var(--accent-cyan);
+  --card-glow: rgba(6, 182, 212, 0.15);
+  --card-gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+}
+
+.service-card:nth-child(2) {
+  --card-accent: var(--accent-pink);
+  --card-glow: rgba(236, 72, 153, 0.15);
+  --card-gradient: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+}
+
+.service-card:nth-child(3) {
+  --card-accent: var(--accent-purple);
+  --card-glow: rgba(168, 85, 247, 0.15);
+  --card-gradient: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+}
+
+.service-card:nth-child(4) {
+  --card-accent: var(--accent-indigo);
+  --card-glow: rgba(79, 70, 229, 0.15);
+  --card-gradient: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg), 0 0 25px var(--card-glow);
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.service-price {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(var(--accent-cyan-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-cyan-rgb), 0.2);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.services-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-color);
+}
+
+.services-note {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Project Outcome */
+.project-outcome {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.project-outcome strong {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
 /* Animation utilities for Intersection Observer */
 .fade-in {
   opacity: 0;
@@ -1640,5 +1745,11 @@ footer {
   .contact-glow,
   .about-glow {
     animation: none !important;
+  }
+
+  .service-card,
+  .services-cta {
+    transition: none !important;
+    transform: none !important;
   }
 }
