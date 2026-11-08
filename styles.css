@@ -16,7 +16,7 @@
   --bg-tertiary: #f1f5f9;
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --text-muted: #64748b;
+  --text-muted: #617188;
   --border-color: #e2e8f0;
 
   --accent-cyan: #06b6d4;
@@ -58,7 +58,7 @@
   --bg-tertiary: #1b253b;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-muted: #7d8da4;
   --border-color: #1e293b;
 
   --accent-cyan: #22d3ee;
@@ -1718,7 +1718,9 @@ footer {
 
 .footer-links {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
   list-style: none;
 }
 

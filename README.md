@@ -11,7 +11,7 @@ Live website: [kishorejorige.github.io](https://kishorejorige.github.io)
 - Mobile navigation, sticky-header styling, active-section navigation, and scroll-triggered fade-in animations.
 - Skills grouped into Backend & Core, AI & Automation, and Web & DevOps.
 - Four service offerings: FastAPI backends, RAG chatbots, AI workflow automation, and Docker/deployment.
-- Five contact cards for GitHub, LinkedIn, WhatsApp, Upwork, and email, plus WhatsApp booking links in the hero and Services sections.
+- Five contact cards for GitHub, LinkedIn, WhatsApp, Upwork, and email. The hero and Services sections link to Cal.com; Contact offers booking, email, and WhatsApp options.
 - Six featured projects:
   - **PocketAgent** — a Python and Gemini personal assistant with Telegram and FastAPI interfaces, SQLite memory, and document Q&A (RAG).
   - **Project Guardian** — a Python static-analysis engine with automated CI audits.
@@ -41,6 +41,7 @@ Then open [http://localhost:8000](http://localhost:8000). If your system uses th
 index.html       Main page content, navigation, project cards, metadata, and theme initialization
 styles.css       Theme variables, responsive layouts, component styles, and animations
 script.js        Theme toggle, mobile navigation, scroll behavior, and fade-in observer
+.gitignore       Ignored system, IDE, log, dependency, and environment files
 assets/images/   Logo, profile avatar, and featured project images
 robots.txt       Crawler rules and sitemap location
 sitemap.xml      Homepage sitemap entry
@@ -52,6 +53,6 @@ README.md        Project overview and maintenance notes
 - Edit `index.html` to update contact details, social profiles, project repository/demo links, and project content.
 - Project cards are inside `<section id="projects">`. Add or update the matching image in `assets/images/`.
 - Contact links are inside `<section id="contact">`.
-- The WhatsApp booking links appear in the hero and `.services-cta`; replace their `href` values if using another booking service.
+- The hero and Services booking links use Cal.com. Contact also offers booking, email, and WhatsApp options.
 - The four service cards are inside `<section id="services">`; update their titles, descriptions, and prices there.
 - Edit `styles.css` for presentation and `script.js` for interactive behavior.
