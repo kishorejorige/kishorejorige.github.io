@@ -1,94 +1,57 @@
 # Kishore Kumar | Python Developer & AI Automation Specialist
 
-Welcome to the repository for the personal developer portfolio website of **Kishore Kumar**, a Python Developer and AI Automation Builder based in Hyderabad, India. 
+This repository contains the personal developer portfolio of **Kishore Kumar**, a Python Developer and AI Automation Builder based in Hyderabad, India.
 
-Live Website: [https://kishorejorige.github.io](https://kishorejorige.github.io)
+Live website: [kishorejorige.github.io](https://kishorejorige.github.io)
 
----
+## Portfolio features
 
-## 🚀 Key Features
+- Responsive portfolio with Home, About, Skills, Services, Projects, and Contact sections.
+- Dark and light themes, with the selected theme saved in `localStorage` and an initial preference based on the visitor's system setting.
+- Mobile navigation, sticky-header styling, active-section navigation, and scroll-triggered fade-in animations.
+- Skills grouped into Backend & Core, AI & Automation, and Web & DevOps.
+- Four service offerings: FastAPI backends, RAG chatbots, AI workflow automation, and Docker/deployment.
+- Five contact cards for GitHub, LinkedIn, WhatsApp, Upwork, and email, plus WhatsApp booking links in the hero and Services sections.
+- Six featured projects:
+  - **PocketAgent** — a Python and Gemini personal assistant with Telegram and FastAPI interfaces, SQLite memory, and document Q&A (RAG).
+  - **Project Guardian** — a Python static-analysis engine with automated CI audits.
+  - **ML Time Series Ranking Engine** — a Python prediction workflow with a FastAPI API and Docker deployment.
+  - **Personal AI Engineer** — an AI developer assistant in active development.
+  - **AND Real Estate** — a real-estate platform with listings, an admin dashboard, and lead notifications.
+  - **GitHub MCP Test Lab** — a GitHub workflow practice lab with a local agent and CI checks.
+- Semantic HTML, keyboard focus styling, a skip-to-content link, reduced-motion support, and SEO/social-sharing metadata.
 
-- **Modern Visual Identity**: Designed with a controlled slate & deep-blue visual foundation accented by cyan, indigo, pink, and orange linear gradients.
-- **Animated Background mesh**: Smooth, slow-drifting glowing background blobs (`float-glow` animations) that add depth and style to the sections.
-- **Dracula IDE Mock-up**: Features a visual code window containing syntactically colored mock FastAPI code that aligns with dark/light themes.
-- **Responsive Layout**: Designed mobile-first using pure CSS Grid and Flexbox layouts.
-- **Theme Switcher**: Integrates dark and light themes with preference persistence in `localStorage` and system media query overrides.
-- **Synchronous Initialization**: Executes theme initialization in the `<head>` of the page to completely prevent dark/light visual flashing on reload.
-- **Color-Coded Skill Categories**: Grouped into Backend, AI, and Web cards that glow with category-specific colors on hover.
-- **Featured Projects**: Displays projects inside gradient-bordered cards with specialized technology tag colors and multiply-blend overlays on hover.
-- **Balanced Contact Drawer**: Responsive 5-card social grid containing custom brand accents for GitHub, LinkedIn, WhatsApp, Upwork, and Email.
-- **Services Section**: Four service cards with staggered fade-in animations, cyan price labels, and a WhatsApp booking CTA.
-- **Case-Study Lines**: Each project card includes a Problem/Result summary beneath the description.
-- **Book a Call CTA**: Hero and Services section link to a WhatsApp pre-filled message for booking calls.
+## Technologies
 
----
+The site uses vanilla HTML, CSS, and JavaScript. It has no build step, framework, or package dependencies. Google Fonts provides Outfit and Inter typography.
 
-## 🎨 Visual Specifications & Branding
+## Run locally
 
-- **Typography**: Uses **Outfit** (sans-serif) for headers to deliver a premium, bold display look, and **Inter** (sans-serif) for body copies to ensure text readability.
-- **Gradient Backdrops**: 
-  - Standard gradient: `linear-gradient(135deg, cyan 0%, indigo 50%, pink 100%)`
-  - Floating glow backdrops: cyan, pink, indigo, purple, and orange accents.
-
----
-
-## ♿ Accessibility & Standards
-
-- **Focus Outlines**: Active focus states with prominent cyan borders and offsets for keyboard navigation.
-- **Semantic Structure**: Built using HTML5 landmarks (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`) with descriptive `aria-label` tags.
-- **Reduced Motion Support**: Inside `@media (prefers-reduced-motion: reduce)`, all background mesh animations, transforms, and transitions are deactivated to maintain high accessibility.
-- **Skip to Content Link**: A visually hidden "Skip to main content" link becomes visible on keyboard focus, letting keyboard users jump straight to `<main id="main">`.
-- **SEO & Social Sharing**: Canonical URL, Open Graph (og:title, og:description, og:image), Twitter Card (summary_large_image), and theme-color meta tags in the `<head>`.
-
----
-
-## 📂 File Directory
+From the repository directory, start Python's built-in HTTP server:
 
 ```bash
-├── index.html       # Primary page structure, SVGs, Services section, SEO/Open Graph tags, skip link, and head initialization script
-├── styles.css       # Variable tokens, grid rules, gradients, Services & project-outcome styles, skip-link, and custom animations
-├── script.js        # Scroll tracking listeners, mobile menu drawer, and theme toggling
-├── README.md        # Documentation and guide
-├── .gitignore       # Ignores TASK.md, system files, IDE files, logs, node_modules/, and __pycache__/
-├── robots.txt       # Allows all crawlers and points to sitemap.xml
-├── sitemap.xml      # XML sitemap listing the homepage
-└── assets/
-    └── images/      # Developer avatar and featured project assets
+python -m http.server 8000
 ```
 
----
+Then open [http://localhost:8000](http://localhost:8000). If your system uses the `python3` command, run `python3 -m http.server 8000` instead.
 
-## 💻 Local Execution
+## Repository structure
 
-This website uses vanilla HTML, CSS, and JavaScript with no build steps, frameworks, or dependencies. To host it locally, you can use python's built-in server. 
-
-To automatically bind to a random free port on your machine (avoiding port clashes), run the server with port `0`:
-
-```bash
-# Navigate to workspace
-cd kishorejorige.github.io
-
-# Start local server on a random free port
-python3 -m http.server 0
+```text
+index.html       Main page content, navigation, project cards, metadata, and theme initialization
+styles.css       Theme variables, responsive layouts, component styles, and animations
+script.js        Theme toggle, mobile navigation, scroll behavior, and fade-in observer
+assets/images/   Logo, profile avatar, and featured project images
+robots.txt       Crawler rules and sitemap location
+sitemap.xml      Homepage sitemap entry
+README.md        Project overview and maintenance notes
 ```
 
-The terminal will print the selected port, for example:
-`Serving HTTP on 0.0.0.0 port 43273 (http://0.0.0.0:43273/) ...`
+## Update links and content
 
-Once hosted, navigate your browser to `http://localhost:<PORT>` (replacing `<PORT>` with the port number printed in the terminal).
-
----
-
-## 🛠 Customizing Links
-
-To update contact addresses or project URLs:
-1. Open `index.html`.
-2. Locate the `projects` section (`<section id="projects">`) and swap project repository URLs.
-3. Locate the `contact` section (`<section id="contact">`) and change the social `href` targets (Upwork, LinkedIn, GitHub, email, or phone number).
-
-## 🛠 Customizing Services
-
-To edit the Services section (`<section id="services">`):
-1. **Offers and prices**: Edit the four `<article class="service-card">` blocks — change the `<h3>` title, `<p>` description, and `<span class="service-price">` value.
-2. **Booking link**: Change the `href` on the `Book a free 15-min call` anchor inside `.services-cta`. The default points to a WhatsApp pre-filled message (`https://wa.me/919032557159?text=...`); replace it with a Calendly or other booking URL if preferred.
-3. **Stagger timing**: Adjust or remove the `delay-100` / `delay-200` classes on `.service-card` elements to change the fade-in sequence.
+- Edit `index.html` to update contact details, social profiles, project repository/demo links, and project content.
+- Project cards are inside `<section id="projects">`. Add or update the matching image in `assets/images/`.
+- Contact links are inside `<section id="contact">`.
+- The WhatsApp booking links appear in the hero and `.services-cta`; replace their `href` values if using another booking service.
+- The four service cards are inside `<section id="services">`; update their titles, descriptions, and prices there.
+- Edit `styles.css` for presentation and `script.js` for interactive behavior.
