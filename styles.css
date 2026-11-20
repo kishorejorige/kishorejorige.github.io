@@ -699,12 +699,6 @@ header.scrolled {
   align-items: center;
 }
 
-@media (min-width: 768px) {
-  .about-grid {
-    grid-template-columns: 3fr 2fr;
-  }
-}
-
 .about-text p {
   font-size: 17px;
   line-height: 1.8;
